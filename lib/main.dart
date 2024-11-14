@@ -35,61 +35,66 @@ class _MainAppState extends State<MainApp> {
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
             )),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
-              child: Column(
-                children: [
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(top: 20, right: 30, left: 30),
+                  child: Column(
                     children: [
-                      RichText(
-                        text: const TextSpan(
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontFamily: "LemonMilk-bold",
-                            color: Colors.black,
-                            fontWeight: FontWeight.w900,
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          RichText(
+                            text: const TextSpan(
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontFamily: "LemonMilk-bold",
+                                color: Colors.black,
+                                fontWeight: FontWeight.w900,
+                              ),
+                              children: [
+                                TextSpan(
+                                  text: 'PREFEITURA\n',
+                                ),
+                                TextSpan(
+                                  text: "MUNICIAPAL\nDE AREIÓPOLIS",
+                                ),
+                              ],
+                            ),
                           ),
-                          children: [
-                            TextSpan(
-                              text: 'PREFEITURA\n',
+                          Image.asset(
+                            "assets/images/logo.png",
+                            height: 100,
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 10),
+                      SizedBox(
+                        width: double.infinity,
+                        child: OutlinedButton(
+                          onPressed: () {},
+                          style: OutlinedButton.styleFrom(
+                            padding: const EdgeInsets.all(14),
+                          ),
+                          child: const Text(
+                            "PAINEL DE CONTROLE DA DENGUE",
+                            style: TextStyle(
+                              color: Colors.redAccent,
+                              fontFamily: "RobotoCondensed",
+                              fontWeight: FontWeight.w900,
+                              fontSize: 16,
                             ),
-                            TextSpan(
-                              text: "MUNICIAPAL\nDE AREIÓPOLIS",
-                            ),
-                          ],
+                          ),
                         ),
                       ),
-                      Image.asset(
-                        "assets/images/logo.png",
-                        height: 100,
-                      ),
+                      const SizedBox(height: 30),
                     ],
                   ),
-                  const SizedBox(height: 10),
-                  SizedBox(
-                    width: double.infinity,
-                    child: OutlinedButton(
-                      onPressed: () {},
-                      style: OutlinedButton.styleFrom(
-                        padding: const EdgeInsets.all(14),
-                      ),
-                      child: const Text(
-                        "PAINEL DE CONTROLE DA DENGUE",
-                        style: TextStyle(
-                          color: Colors.redAccent,
-                          fontFamily: "RobotoCondensed",
-                          fontWeight: FontWeight.w900,
-                          fontSize: 16,
-                        ),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 30),
-                  Container(
+                ),
+                Expanded(
+                  child: Container(
                     color: Colors.transparent,
-                    height: 500,
                     width: double.infinity,
                     child: PageView(
                       controller: pageController,
@@ -116,9 +121,9 @@ class _MainAppState extends State<MainApp> {
                         )
                       ],
                     ),
-                  )
-                ],
-              ),
+                  ),
+                ),
+              ],
             ),
           ),
         ),
