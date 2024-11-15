@@ -1,3 +1,4 @@
+import 'package:dengue/widgets/sintomas_widget.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,7 +14,7 @@ class MainApp extends StatefulWidget {
 
 class _MainAppState extends State<MainApp> {
   final PageController pageController = PageController(
-    initialPage: 1,
+    initialPage: 0,
   );
 
   @override
@@ -93,34 +94,15 @@ class _MainAppState extends State<MainApp> {
                   ),
                 ),
                 Expanded(
-                  child: Container(
-                    color: Colors.transparent,
-                    width: double.infinity,
-                    child: PageView(
-                      controller: pageController,
-                      scrollDirection: Axis.vertical,
-                      children: [
-                        const Padding(
-                          padding: EdgeInsets.symmetric(vertical: 10),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "Sintomas",
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w900,
-                                  fontFamily: "RobotoCondensed",
-                                  fontSize: 25,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Container(
-                          color: Colors.black,
-                        )
-                      ],
-                    ),
+                  child: PageView(
+                    physics: const NeverScrollableScrollPhysics(),
+                    controller: pageController,
+                    children: [
+                      const SintomasWidget(),
+                      Container(
+                        color: Colors.black,
+                      )
+                    ],
                   ),
                 ),
               ],
